@@ -76,6 +76,11 @@ server.get('/photosapi', (req, res) => {
     res.json(jsonData);
 });
 
+server.get('/photosapi/:id', (req, res) => {
+    let id_from_client = req.params.id;
+    res.json(jsonData.find(x => x.id == id_from_client));
+});
+
 server.listen(4400, function(){
 
     console.log('Server is successfully running on Port 4400');
